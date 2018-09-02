@@ -2,6 +2,10 @@ FROM python:3.6-alpine
 
 WORKDIR /app
 
+# Set timezone
+RUN apk add --no-cache tzdata
+ENV TZ Asia/Dubai
+
 # Install dependencies.
 ADD requirements.txt /app
 RUN cd /app && \
