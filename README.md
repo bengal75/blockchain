@@ -6,7 +6,7 @@ Adapted by [Ben Galloway](mailto:ben@bengalloway.io) for use at UAE Cyber Quest 
 
 ## Installation
 
-[Download this branch of this repository](https://github.com/bengal75/cyberquest-blockchain-api/archive/package.zip), and extract the zip file. In a command window, in the same directory as this file, run the following steps. Only steps 2 and 3 require an internet connection.
+[Download this branch](https://github.com/bengal75/cyberquest-blockchain-api/archive/package.zip) of this repository, and extract the zip file. In a command window, in the same directory as this file, run the following steps. Only steps 2 and 3 require an internet connection.
 
 1. Check that Python is available. The Hackernoon code requires Python 3, so it's probably easiest to use that binary explicitly:
 ```bash
