@@ -5,7 +5,7 @@ from urllib.parse import urlparse
 from uuid import uuid4
 
 import requests
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, send_from_directory
 from flask_cors import CORS
 
 
@@ -190,7 +190,7 @@ class Blockchain:
 
 
 # Instantiate the Node
-app = Flask(__name__)
+app = Flask(__name__, static_url_path='/', static_folder='static')
 CORS(app)
 
 # Generate a globally unique address for this node
@@ -199,6 +199,13 @@ node_identifier = "the_blockchain_itself" #str(uuid4()).replace('-', '')
 # Instantiate the Blockchain
 blockchain = Blockchain()
 
+
+@app.route('/')
+def client_root():
+    return app.send_static_file('index.html')
+@app.route('/<path:path>')
+def client_files(path):
+    return send_from_directory('static', path)
 
 # Provide an easy reset, for use only by the workshop leader
 # --BAG 2 Sep 2018
@@ -330,10 +337,15 @@ def list_nodes():
 
 
 if __name__ == '__main__':
+    import os,time
+    os.environ['TZ'] = 'Asia/Dubai'
+    time.tzset()
+    
+
     from argparse import ArgumentParser
 
     parser = ArgumentParser()
-    parser.add_argument('-p', '--port', default=5000, type=int, help='port to listen on')
+    parser.add_argument('-p', '--port', default=80, type=int, help='port to listen on')
     args = parser.parse_args()
     port = args.port
 
