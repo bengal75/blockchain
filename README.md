@@ -32,7 +32,7 @@ window.api="http://192.168.0.5";
 ```bash
 python3 blockchain.py
 ```
-This will listen on port 80 by default, so all that the participants then need to do is connect to the IP address of the laptop that the Python script is running on, in a web browser.
+This will listen on port 80 by default, so all that the participants then need to do is connect to the IP address of the laptop that the Python script is running on, in a web browser - e.g. visit http://192.168.0.5
 
 (There are nice things that we could do in the local hosts file on each participant laptop (or maybe on the workshop's router) to make this a bit prettier, but that's very much a nice-to-have rather than a necessity.)
 
