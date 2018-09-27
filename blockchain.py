@@ -8,6 +8,10 @@ import requests
 from flask import Flask, jsonify, request, send_from_directory
 from flask_cors import CORS
 
+import os,time
+os.environ['TZ'] = 'Asia/Dubai'
+time.tzset()
+
 
 class Blockchain:
     def __init__(self):
@@ -337,11 +341,6 @@ def list_nodes():
 
 
 if __name__ == '__main__':
-    import os,time
-    os.environ['TZ'] = 'Asia/Dubai'
-    time.tzset()
-    
-
     from argparse import ArgumentParser
 
     parser = ArgumentParser()
